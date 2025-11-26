@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 11:20:33 by clempaol          #+#    #+#             */
-/*   Updated: 2025/11/26 10:47:48 by clempaol         ###   ########.fr       */
+/*   Created: 2025/11/26 09:14:43 by clempaol          #+#    #+#             */
+/*   Updated: 2025/11/26 10:26:07 by clempaol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_printf(const char *)
-{
-
-}
+# include <unistd.h>
+#endif
