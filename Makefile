@@ -3,17 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/26 09:24:48 by clempaol          #+#    #+#              #
-#    Updated: 2025/11/26 10:44:58 by clempaol         ###   ########.fr        #
+#    Updated: 2025/12/01 16:48:01 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 SRC = ft_printf.c \
-	  ft_printf_utils.c
+	  ft_printf_utils.c \
+	  ft_printf_utils2.c
 
 OBJ	= $(SRC:.c=.o)
 
