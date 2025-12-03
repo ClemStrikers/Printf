@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 10:24:21 by clempaol          #+#    #+#             */
-/*   Updated: 2025/12/01 16:45:48 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/03 13:16:39 by clempaol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
 void	ft_putstr(char *str)
@@ -78,18 +79,4 @@ void	ft_puthex(unsigned int nb, int upper)
 	}
 	else
 		ft_putchar(base[nb]);
-}
-
-void	ft_putptr(unsigned long ptr)
-{
-	char	*base;
-
-	base = "0123456789abcdef";
-	if (ptr >= 16)
-	{
-		ft_putptr(ptr / 16);
-		ft_putptr(ptr % 16);
-	}
-	else
-		ft_putchar(base[ptr]);
 }

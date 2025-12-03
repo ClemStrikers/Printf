@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/25 11:20:33 by clempaol          #+#    #+#             */
-/*   Updated: 2025/12/01 16:47:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/03 14:33:43 by clempaol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	dispatch(char c, va_list ap)
 {
@@ -59,3 +60,10 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (0);
 }
+
+// int	main(void)
+// {
+// 	char *c = "shajfs";
+// 	printf("\n%d\n", printf("%s", c));
+// 	return (0);
+// }

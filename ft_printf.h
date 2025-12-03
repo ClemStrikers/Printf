@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 09:14:43 by clempaol          #+#    #+#             */
-/*   Updated: 2025/12/01 16:45:14 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/03 13:19:32 by clempaol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-void	ft_putchar(char c);
+int		ft_putchar(char c);
 void	ft_putstr(char *str);
 void	ft_putnbr(int nb);
 void	ft_putunbr(unsigned int nb);
