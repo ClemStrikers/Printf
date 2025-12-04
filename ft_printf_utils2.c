@@ -3,25 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 10:28:55 by clempaol          #+#    #+#             */
-/*   Updated: 2025/12/03 10:28:55 by clempaol         ###   ########.fr       */
+/*   Created: 2025/12/01 16:46:15 by marvin            #+#    #+#             */
+/*   Updated: 2025/12/01 16:46:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putptr(unsigned long ptr)
+static int	print_hex(unsigned long nb, char *base)
+{
+	int	count;
+
+	count = 0;
+	if (nb >= 16)
+		count += print_hex(nb / 16, base);
+	count += ft_putchar(base[nb % 16]);
+	return (count);
+}
+
+int	ft_puthex(unsigned int nb, int upper)
 {
 	char	*base;
 
-	base = "0123456789abcdef";
-	if (ptr >= 16)
-	{
-		ft_putptr(ptr / 16);
-		ft_putptr(ptr % 16);
-	}
+	if (upper)
+		base = "0123456789ABCDEF";
 	else
-		ft_putchar(base[ptr]);
+		base = "0123456789abcdef";
+	return (print_hex(nb, base));
+}
+
+int	ft_putptr(unsigned long ptr)
+{
+	int	count;
+
+	count = 0;
+	count += ft_putstr("0x");
+	count += print_hex(ptr, "0123456789abcdef");
+	return (count);
 }

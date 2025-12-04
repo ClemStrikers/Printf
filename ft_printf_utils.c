@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 10:24:21 by clempaol          #+#    #+#             */
-/*   Updated: 2025/12/03 13:16:39 by clempaol         ###   ########.fr       */
+/*   Updated: 2025/12/04 17:40:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,65 +18,61 @@ int	ft_putchar(char c)
 	return (1);
 }
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
+	int	i;
+	
 	if (!str)
+		return (write(1, "(null)", 1));
+	i = 0;
+	while (str[i])
 	{
-		write(1, "(null)", 6);
-		return ;
+		write(1, &str[i], 1);
+		i++;
 	}
-	while (*str)
-	{
-		write(1, str, 1);
-		str++;
-	}
+	return (i);
 }
 
-void	ft_putnbr(int nb)
+static int	print_recursive(long n)
 {
-	if (nb == -2147483648)
+	int	count;
+
+	count = 0;
+	if (n >= 10)
+		count += print_recursive(n / 10);
+	count += ft_putchar((n % 10) + '0');
+	return (count);
+}
+
+int	ft_putnbr(int nb)
+{
+	long	n;
+	int		count;
+	
+	n = nb;
+	count = 0;
+	if (n < 0)
 	{
-		write(1, "-2147483648", 11);
-		return ;
+		count += ft_putchar('-');
+		n = -n;
 	}
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = -nb;
-	}
+	count += print_recursive(n);
+	return (count);
+}
+
+int	ft_putunbr(unsigned int nb)
+{
+	int	count;
+
+	count = 0;
 	if (nb >= 10)
 	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
+		count += ft_putunbr(nb / 10);
+		count += ft_putunbr(nb % 10);
 	}
 	else
-		ft_putchar(nb + '0');
+		count += ft_putchar(nb + '0');
+	return (count);
 }
 
-void	ft_putunbr(unsigned int nb)
-{
-	if (nb >= 10)
-	{
-		ft_putunbr(nb / 10);
-		ft_putunbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + '0');
-}
 
-void	ft_puthex(unsigned int nb, int upper)
-{
-	char	*base;
-
-	if (upper)
-		base = "0123456789ABCDEF";
-	else
-		base = "0123456789abcdef";
-	if (nb >= 16)
-	{
-		ft_puthex(nb / 16, upper);
-		ft_puthex(nb % 16, upper);
-	}
-	else
-		ft_putchar(base[nb]);
-}
