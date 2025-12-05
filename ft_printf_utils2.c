@@ -38,8 +38,11 @@ int	ft_putptr(unsigned long ptr)
 {
 	int	count;
 
+	if (!ptr)
+		return (write(1, "(nil)", 5));
 	count = 0;
 	count += ft_putstr("0x");
 	count += print_hex(ptr, "0123456789abcdef");
 	return (count);
 }
+

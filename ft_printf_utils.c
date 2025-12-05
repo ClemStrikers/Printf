@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: clempaol <clempaol@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 10:24:21 by clempaol          #+#    #+#             */
-/*   Updated: 2025/12/04 17:40:44 by marvin           ###   ########.fr       */
+/*   Updated: 2025/12/05 09:51:22 by clempaol         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	ft_putchar(char c)
 int	ft_putstr(char *str)
 {
 	int	i;
-	
+
 	if (!str)
-		return (write(1, "(null)", 1));
+		return (write(1, "(null)", 6));
 	i = 0;
 	while (str[i])
 	{
@@ -48,7 +48,7 @@ int	ft_putnbr(int nb)
 {
 	long	n;
 	int		count;
-	
+
 	n = nb;
 	count = 0;
 	if (n < 0)
@@ -74,5 +74,3 @@ int	ft_putunbr(unsigned int nb)
 		count += ft_putchar(nb + '0');
 	return (count);
 }
-
-
